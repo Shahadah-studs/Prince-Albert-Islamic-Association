@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prince Albert Islamic Association</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            background-color: #f9f9f9;
+            color: #333333;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0a5c36;
+            color: white;
+            padding: 15px 30px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(10, 92, 54, 0.8), rgba(0, 0, 0, 0.7));
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .hero-section h1 { 
+            color: #d4af37; 
+            margin: 0 0 10px 0;
+        }
+
+        .container { 
+            padding: 40px 20px; 
+            text-align: center; 
+        }
+
+        .prayer-grid {
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .prayer-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            min-width: 140px;
+            flex: 1; 
+            margin: 7px; 
+        }
+
+        .prayer-card h3 { 
+            color: #0a5c36; 
+            margin: 0 0 10px 0; 
+        }
+
+        .prayer-card.highlight { 
+            border: 2px solid #d4af37; 
+            background: #fffdf3; 
+        }
+
+        .event-section {
+            background-color: #f0f4f1;
+        }
+
+        .event-item {
+            background: white;
+            text-align: left;
+            padding: 20px;
+            margin: 15px auto;
+            max-width: 600px;
+            border-left: 5px solid #0a5c36;
+            border-radius: 4px;
+        }
+
+        .event-date { 
+            color: #d4af37; 
+            font-weight: bold; 
+            font-size: 14px; 
+        }
+
+        .imam-section {
+            background-color: #ffffff;
+        }
+
+        .imam-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .imam-card {
+            background: #f9f9f9;
+            border-top: 4px solid #0a5c36;
+            border-radius: 8px;
+            padding: 25px;
+            min-width: 250px;
+            max-width: 350px;
+            flex: 1;
+            margin: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .imam-card h3 {
+            color: #333333;
+            margin: 0 0 5px 0;
+            font-size: 22px;
+        }
+
+        .imam-title {
+            color: #d4af37;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .imam-card p {
+            font-size: 15px;
+            line-height: 1.5;
+            color: #555555;
+            margin: 0;
+        }
+
+        .footer { 
+            background: #222; 
+            color: #bbb; 
+            padding: 20px; 
+            text-align: center; 
+        }
+        
+        .badge { 
+            color: #d4af37; 
+            font-weight: bold; 
+            margin-top: 5px; 
+        }
+ 
+        
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">PAIA Mosque</div>
+        <ul class="nav-links">
+            <li><a href="#prayers">Prayers</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#imams">Our Imams</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero-section">
+        <h1>Welcome to PAIA - Prince Albert <br> Islamic Association</h1>
+        <p>Connecting our community to islam smoothly.</p>
+    </header>
+
+    <section id="prayers" class="container">
+        <h2>Daily Prayer Times</h2>
+        <div class="prayer-grid">
+            <div class="prayer-card"><h3>Fajr</h3><p>4:45 AM</p></div>
+            <div class="prayer-card"><h3>Dhuhr</h3><p>1:30 PM</p></div>
+            <div class="prayer-card"><h3>Asr</h3><p>6:30 PM</p></div>
+            <div class="prayer-card"><h3>Maghrib</h3><p>8:30 PM</p></div>
+            <div class="prayer-card"><h3>Isha</h3><p>10:15 PM</p></div>
+            <div class="prayer-card highlight"><h3>Jummah</h3><p>1:30 PM</p></div>
+        </div>
+    </section>
+
+    <section id="events" class="container event-section">
+        <h2>Events</h2>
+        <div class="event-item">
+            <span class="event-date">Every Friday</span>
+            <h3>Weekly Seerah</h3>
+            <p>Join us after our Asr' prayer for our weekly friday seerah. Bring anyone who will benefit from it. </p>
+        </div>
+    </section>
+
+<section id="events" class="container event-section">
+<div class="event-item">
+            <span class="event-date">Everyday</span>
+            <h3>Islamic Reminder</h3>
+            <p>Join us after our Maghrib prayer for our daliy Islamic reminder. Bring anyone who will benefit from it. </p>
+        </div>
+    </section>
+    <section id="imams" class="container imam-section">
+        <h2>Our Imams</h2>
+        <div class="imam-grid">
+            <div class="imam-card">
+               <img class="mosque-image" src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/avatar-team.png" alt="Prince Albert Mosque">
+
+                <h3>Imam Osmaan ????</h3>
+                <div class="imam-title">Imam of the community</div>
+                <p>Leading daily prayers, Hosting Seerah events and keeping the community strong. <br> Have any questions? Talk to him in person or by talking to him on Whatsapp.</p>
+            </div>
+        </div>
+    </section>
+<a href="tel:+1 (306) 241-0396">Contact Imam Osmaan ????</a>
+
+    <footer class="footer">
+      
+        <p>© 2026 Prince Albert Islamic Association.</p>
+        <p class="badge">Powered by Shahadah Studios Elite</p>
+    </footer>
+
+</body>
+</html>
