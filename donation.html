@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donate — Prince Albert Islamic Association</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #fafafa;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #111111;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .top-nav {
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 24px;
+      box-sizing: border-box;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #666666;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    .back-link:hover {
+      color: #111111;
+    }
+    .donation-section {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding: 40px 24px 80px 24px;
+    }
+    .donation-container {
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .donation-info .badge {
+      background: #e6f4ea;
+      color: #137333;
+      padding: 6px 12px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+    .donation-info h2 {
+      font-size: 40px;
+      font-weight: 800;
+      line-height: 1.15;
+      margin: 0 0 16px 0;
+      letter-spacing: -1px;
+    }
+    .donation-info .description {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #666666;
+      margin-bottom: 40px;
+    }
+    .impact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .impact-list li {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+    .impact-list .icon {
+      font-size: 24px;
+      background: #ffffff;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      flex-shrink: 0;
+    }
+    .impact-list strong {
+      font-size: 16px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .impact-list p {
+      font-size: 14px;
+      color: #666666;
+      margin: 0;
+      line-height: 1.4;
+    }
+    .donation-card {
+      background: #ffffff;
+      border: 1px solid #e5e5e5;
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .donation-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.06);
+    }
+    .card-header h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin: 0 0 6px 0;
+    }
+    .card-header p {
+      font-size: 14px;
+      color: #888888;
+      margin: 0 0 32px 0;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #444444;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 14px;
+      border: 2px solid #eaeaea;
+      border-radius: 12px;
+      background: #fafafa;
+      font-size: 16px;
+      color: #111111;
+      transition: all 0.2s ease;
+      box-sizing: border-box;
+    }
+    .form-group input:focus, .form-group select:focus {
+      outline: none;
+      border-color: #111111;
+      background: #ffffff;
+      box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.05);
+    }
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .currency-symbol {
+      position: absolute;
+      left: 16px;
+      font-size: 20px;
+      font-weight: 600;
+      color: #111111;
+    }
+    .input-wrapper input {
+      padding-left: 36px;
+      font-weight: 600;
+    }
+    .interac-notice {
+      margin-top: 10px;
+      margin-bottom: 32px;
+      padding: 14px;
+      background: #f4f7f6;
+      border-left: 4px solid #137333;
+      border-radius: 8px;
+      font-size: 13px;
+      color: #444444;
+      line-height: 1.4;
+    }
+    .submit-btn {
+      width: 100%;
+      background: #111111;
+      color: #ffffff;
+      border: none;
+      padding: 18px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      transition: all 0.2s ease;
+    }
+    .submit-btn svg {
+      transition: transform 0.2s ease;
+    }
+    .submit-btn:hover {
+      background: #222222;
+    }
+    .submit-btn:hover svg {
+      transform: translateX(4px);
+    }
+    .page-footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 13px;
+      color: #888888;
+    }
+    @media (max-width: 900px) {
+      .donation-container {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .donation-info h2 {
+        font-size: 32px;
+      }
+      .donation-card {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+    <a href="https://paia-web.wasmer.app" class="back-link">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      Back to main website
+    </a>
+  </nav>
+  <section class="donation-section">
+    <div class="donation-container">
+      <div class="donation-info">
+        <span class="badge">Sadaqah Jariyah</span>
+        <h2>Support PAIA Mosque</h2>
+        <p class="description">
+          Your generous contributions keep our doors open, fund educational youth programs, and sustain daily community operations.
+        </p>
+        <ul class="impact-list">
+          <li>
+            <span class="icon">🕌</span>
+            <div>
+              <strong>Maintenance & Operations</strong>
+              <p>Keep the mosque clean, heated, and fully operational for the 5 daily prayers.</p>
+            </div>
+          </li>
+          <li>
+            <span class="icon">📖</span>
+            <div>
+              <strong>Education & Madrasah</strong>
+              <p>Support our evening Quran classes and weekly Friday Seerah seminars.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="donation-card">
+        <div class="card-header">
+          <h3>Pledge Your Donation By E-mail to :
+              <br> <h3 style="color:orange;">
+          <br> paislamicassociation@gmail.com 
+                  </h3>
+          </h3> 
+          
+          </div>
+          <br>
+          <div class="interac-notice">
+            💡 <strong>Interac e-Transfer info:</strong> You can send your donations to our official email. Make our Email a new contact on your bank account or app, And send us whenever you need later on hassle-free
+          </div>
+          
+        
+      </div>
+    </div>
+  </section>
+  <footer class="page-footer">
+    © 2026 Prince Albert Islamic Association. Powered by Shahadah Studios Elite.
+  </footer>
+  
+</body>
+</html>
