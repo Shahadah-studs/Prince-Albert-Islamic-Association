@@ -5,232 +5,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="/paia.png?v1">
     <title>Prince Albert Islamic Association</title>
+    <link rel="preconnect" href="https://googleapis.com"><link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            margin: 0;
-            font-family: sans-serif;
-            background-color: #f9f9f9;
-            color: #333333;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #0a5c36;
-            color: white;
-            padding: 15px 30px;
-        }
-
-        .logo {
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-links li {
-            margin-left: 20px;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .hero-section {
-            background: linear-gradient(rgba(10, 92, 54, 0.8), rgba(0, 0, 0, 0.7));
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-        }
-
-        .hero-section h1 { 
-            color: #d4af37; 
-            margin: 0 0 10px 0;
-        }
-
-        .container { 
-            padding: 40px 20px; 
-            text-align: center; 
-        }
-
-        .prayer-grid {
-            display: flex;
-            flex-wrap: wrap; 
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .prayer-card {
-            background: white;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 20px;
-            min-width: 140px;
-            flex: 1; 
-            margin: 7px; 
-        }
-
-        .prayer-card h3 { 
-            color: #0a5c36; 
-            margin: 0 0 10px 0; 
-        }
-
-        .prayer-card.highlight { 
-            border: 2px solid #d4af37; 
-            background: #fffdf3; 
-        }
-
-        .event-section {
-            background-color: #f0f4f1;
-        }
-
-        .event-item {
-            background: white;
-            text-align: left;
-            padding: 20px;
-            margin: 15px auto;
-            max-width: 600px;
-            border-left: 5px solid #0a5c36;
-            border-radius: 4px;
-        }
-
-        .event-date { 
-            color: #d4af37; 
-            font-weight: bold; 
-            font-size: 14px; 
-        }
-
-        .imam-section {
-            background-color: #ffffff;
-        }
-
-        .imam-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .imam-card {
-            background: #f9f9f9;
-            border-top: 4px solid #0a5c36;
-            border-radius: 8px;
-            padding: 25px;
-            min-width: 250px;
-            max-width: 350px;
-            flex: 1;
-            margin: 15px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-
-        .imam-card h3 {
-            color: #333333;
-            margin: 0 0 5px 0;
-            font-size: 22px;
-        }
-
-        .imam-title {
-            color: #d4af37;
-            font-weight: bold;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-        }
-
-        .imam-card p {
-            font-size: 15px;
-            line-height: 1.5;
-            color: #555555;
-            margin: 0;
-        }
-
-        .footer { 
-            background: #222; 
-            color: #bbb; 
-            padding: 20px; 
-            text-align: center; 
-        }
-        
-        .badge { 
-            color: #d4af37; 
-            font-weight: bold; 
-            margin-top: 5px; 
-        }
- 
-        
-    div {text-align:center; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: #f4f7f5; color: #1c2e24; font-family: 'Plus Jakarta Sans', sans-serif; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
+        .navbar { width: 100%; max-width: 1100px; background-color: #063c22; border-bottom: 5px solid #d4af37; display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; box-shadow: 0 4px 20px rgba(6,60,34,0.15); margin-top: 20px; border-radius: 16px 16px 0 0; }
+        .logo-wrap { display: flex; align-items: center; text-decoration: none; color: #fff; gap: 15px; }
+        .logo-text { font-family: 'Marcellus', serif; font-size: 0.9rem; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.3; }
+        .logo-text span { color: #d4af37; }
+        .dropdown { position: relative; display: inline-block; }
+        .dropbtn { background-color: #0b4f2e; color: #d4af37; border: 2px solid #d4af37; padding: 12px 24px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; cursor: pointer; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        .dropdown-content { display: none; position: absolute; top: 50px; right: 0; background-color: #ffffff; min-width: 260px; border: 3px solid #063c22; border-top: 5px solid #d4af37; box-shadow: 0 10px 30px rgba(0,0,0,0.25); border-radius: 8px; padding: 6px; z-index: 99999; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .dropdown-content a { color: #063c22; padding: 12px 16px; text-decoration: none; display: block; font-size: 0.85rem; font-weight: 600; border-bottom: 1px dashed #e1ebe5; text-align: left; }
+        .dropdown-content a:last-child { border-bottom: none; }
+        .dropdown-content a:hover { background-color: #f0f7f3; color: #d4af37; }
+        .hero-section { width: 100%; max-width: 1100px; background: linear-gradient(rgba(6,60,34,0.9),rgba(3,33,18,0.95)),url('/paia.png') center/contain no-repeat; color: white; text-align: center; padding: 50px 30px; border-radius: 0 0 16px 16px; margin-bottom: 35px; }
+        .hero-section h1 { font-family: 'Marcellus', serif; font-size: 2.2rem; color: #d4af37; text-shadow: 0 2px 4px rgba(0,0,0,0.4); margin-bottom: 12px; font-weight: 400; }
+        .hero-section p { font-size: 1rem; color: #e1ebe5; max-width: 600px; margin: 0 auto; }
+        .main-grid { width: 100%; max-width: 1100px; display: grid; grid-template-columns: 320px 1fr; gap: 35px; margin-bottom: 40px; }
+        .sidebar-panel, .content-panel { display: flex; flex-direction: column; gap: 35px; }
+        .card-box { width: 100%; background: #ffffff; border: 1px solid #e1efe6; border-radius: 16px; padding: 30px; box-shadow: 0 4px 15px rgba(6,60,34,0.03); }
+        .card-box h2 { font-family: 'Marcellus', serif; font-size: 1.5rem; color: #063c22; margin-bottom: 20px; border-bottom: 2px solid #f0f5f2; padding-bottom: 10px; font-weight: 400; display: flex; align-items: center; gap: 10px; }
+        .card-box h2::before { content: '🕌'; }
+        .iframe-container { border: 4px solid #063c22; border-top: 6px solid #d4af37; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); padding: 5px; background: #fff; display: inline-block; }
+        iframe { display: block; border-radius: 6px; }
+        .event-item { background: #fdfdfd; border: 1px solid #eef4f0; border-left: 6px solid #063c22; border-radius: 8px; padding: 20px; margin-bottom: 20px; text-align: left; }
+        .event-item:hover { border-left-color: #d4af37; }
+        .event-item:last-child { margin-bottom: 0; }
+        .event-date { display: inline-block; color: #d4af37; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; background-color: #fdfaf0; padding: 4px 10px; border-radius: 4px; border: 1px solid #f5eed3; }
+        .event-item h3 { font-family: 'Marcellus', serif; color: #063c22; font-size: 1.2rem; margin-bottom: 8px; font-weight: 400; }
+        .event-item p { font-size: 0.9rem; color: #4e5d55; line-height: 1.6; }
+        .imam-card { background: #fafdfb; border: 1px solid #e6f0ea; border-top: 5px solid #063c22; border-radius: 12px; padding: 30px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 15px; }
+        .mosque-image { width: 100%; max-width: 220px; height: auto; border: 3px solid #063c22; outline: 2px solid #d4af37; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); background-color: #fff; }
+        .imam-card h3 { font-family: 'Marcellus', serif; font-size: 1.4rem; color: #063c22; font-weight: 400; }
+        .imam-title { color: #d4af37; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; background: #fffdf3; border: 1px solid #f5eed3; padding: 4px 12px; border-radius: 20px; }
+        .imam-card p { font-size: 0.88rem; color: #4e5d55; line-height: 1.7; }
+        .footer { width: 100%; max-width: 1100px; background: #181c19; color: #9aa79f; padding: 35px 20px; text-align: center; border-radius: 16px 16px 0 0; border-top: 4px solid #063c22; margin-top: auto; display: flex; flex-direction: column; align-items: center; gap: 15px; }
+        .badge { color: #d4af37; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; }
+        .donate-btn { display: inline-block; background-color: #d4af37; color: #063c22; border: 2px solid #d4af37; padding: 12px 35px; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(212,175,55,0.2); }
+        .donate-btn:hover { background-color: transparent; color: #d4af37; }
+        @media (max-width: 900px) { .navbar, .hero-section, .footer { border-radius: 0; } .navbar { margin-top: 0; padding: 15px; } .hero-section { padding: 40px 20px; } .hero-section h1 { font-size: 1.6rem; } .main-grid { grid-template-columns: 1fr; gap: 25px; padding: 0 15px; } }
     </style>
 </head>
 <body>
-
-   <nav class="navbar">
-    <div class="logo"><a href="us.html" style="text-decoration:none; color:white;"><img src="paia.png" height="80px" width="80px"> <br>About Us</a></div>
-    <ul class="nav-links" style="display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; width: auto !important; min-width: max-content !important; gap: 15px !important; list-style: none !important;">
-        <li><a href="#prayers">Prayers</a></li>
-        <li><a href="#events">Events</a></li>
-        <li><a href="#imams">Our<br>Imams</a></li>
-        
-    </ul>
-</nav>
-
-
-    <header class="hero-section">
-        <h1>Welcome to PAIA - Prince Albert <br> Islamic Association</h1>
-        <p>Connecting our community to islam smoothly.</p>
-    </header>
-
-    <div id="prayers">
-<iframe 
-  src="https://praywatch.islamicity.org/embed?city=Prince Albert&state_obtained=Saskatchewan&country=Canada&lat=53.2033494&lng=-105.7530705&madhhab=hanafi&method=ISNA&timezone=-6&timezone_id=America/Regina&theme=light&showCountdown=true&showDailyTimes=true" 
-  width="300" 
-  height="600" 
-  frameborder="0">
-</iframe>
-    </div>
-    <section id="events" class="container event-section">
-        <h2>Events</h2>
-        <div class="event-item">
-            <span class="event-date">Every Friday</span>
-            <h3>Weekly Seerah</h3>
-            <p>Join us after 7:00  for our weekly friday seerah. <br>Bring anyone who will benefit from it. </p>
-        </div>
-    </section>
-
-<section id="events" class="container event-section">
-<div class="event-item">
-            <span class="event-date">Everyday</span>
-            <h3>Islamic Reminder</h3>
-            <p>Join us after our Maghrib prayer for our daliy Islamic reminder. <br>Bring anyone who will benefit from it. </p>
-        </div>
-    </section>
-    <section id="imams" class="container imam-section">
-        <h2>Our Imams</h2>
-        <div class="imam-grid">
-            <div class="imam-card">
-               <img class="mosque-image" src="scs.png" alt="Prince Albert Mosque">
-
-                <h3>Imam Osmaan Abdurahman</h3>
-                <div class="imam-title">Imam of the community</div>
-                <p>Leading daily prayers, Hosting Seerah events, Summer camps,<br> Evening Madrasah and <br> keeping the community strong. <br> Have any questions? Talk to him in person or by talking to him on Whatsapp.</p>
+    <nav class="navbar">
+        <a href="us" class="logo-wrap">
+            <img src="paia.png" alt="PAIA Logo" height="60" width="60">
+            <div class="logo-text">Prince Albert<br><span>Islamic Association</span></div>
+        </a>
+        <div class="dropdown">
+            <button class="dropbtn">MENU ▼</button>
+            <div class="dropdown-content">
+                <a href="#prayers">Prayer Schedule</a><a href="#events">Community Events</a><a href="#imams">Our Imams</a><a href="us">About Our Center</a><a href="donation">Support / Donations</a>
             </div>
         </div>
-    </section>
-
-
+    </nav>
+    <header class="hero-section">
+        <h1>Welcome to PAIA</h1>
+        <p>Connecting our community to Islam smoothly, servicing families throughout Prince Albert.</p>
+    </header>
+    <main class="main-grid">
+        <div class="sidebar-panel" id="prayers">
+            <div class="card-box" style="text-align: center;">
+                <h2>Prayer Times</h2>
+                <div class="iframe-container">
+                    <iframe src="https://islamicity.org Albert&state_obtained=Saskatchewan&country=Canada&lat=53.2033494&lng=-105.7530705&madhhab=hanafi&method=ISNA&timezone=-6&timezone_id=America/Regina&theme=light&showCountdown=true&showDailyTimes=true" width="260" height="580" frameborder="0" title="PAIA Live Prayer Matrix"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="content-panel">
+            <section id="events" class="card-box">
+                <h2>Upcoming Events</h2>
+                <div class="event-item">
+                    <span class="event-date">Every Friday</span>
+                    <h3>Weekly Seerah Study</h3>
+                    <p>Join our group assembly after 7:00 PM for our foundational weekly Friday Seerah breakdown. Bring anyone who will benefit from these historical parameters.</p>
+                </div>
+                <div class="event-item">
+                    <span class="event-date">Everyday Routine</span>
+                    <h3>Islamic Reminder Sessions</h3>
+                    <p>Gather inside the main musallah right after our collective Maghrib prayer service for our daily refresher reminder. Open to all community members seeking knowledge.</p>
+                </div>
+            </section>
+            <section id="imams" class="card-box">
+                <h2>Our Imams</h2>
+                <div class="imam-card">
+                    <img class="mosque-image" src="scs.png" alt="Prince Albert Community Center">
+                    <h3>Imam Osmaan Abdurahman</h3>
+                    <div class="imam-title">Community Imam & Spiritual Lead</div>
+                    <p>Responsible for leading daily congregational prayers, hosting educational Seerah nights, structuring youth summer camps, directing our evening Madrasah loops, and maintaining structural solidarity across the region. Feel free to approach him directly in the masjid hallway or contact his platform line on WhatsApp for any questions.</p>
+                </div>
+            </section>
+        </div>
+    </main>
     <footer class="footer">
-      
-        <p>© 2026 Prince Albert Islamic Association.</p>
-        <p class="badge">Powered by<br> Shahadah Studios <br>Elite</p>
+        <a href="donation" class="donate-btn">Donate to PAIA</a>
+        <p>© 2026 Prince Albert Islamic Association. All Rights Reserved.</p>
+        <p class="badge">Powered by<br>Shahadah Studios Elite</p>
     </footer>
-
 </body>
-</html>
+
