@@ -3,126 +3,355 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-      <link rel="icon" type="image/png" href="/paia.png?v1">
+  <link rel="icon" type="image/png" href="/paia.png?v1">
   <title>Donate — Prince Albert Islamic Association</title>
   <style>
+    :root {
+      --bg: #f5f1ea;
+      --bg-soft: #fbf9f6;
+      --card: #ffffff;
+      --card-alt: #f3efe9;
+      --primary: #1a5e3b;
+      --primary-dark: #123f2a;
+      --accent: #d9b36b;
+      --text: #1b1b1b;
+      --muted: #5b5b5b;
+      --line: #e7e1d8;
+      --success-bg: #eaf7ef;
+      --success: #1a6d45;
+      --shadow: 0 18px 40px rgba(27, 27, 27, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       padding: 0;
-      background-color: #fafafa;
+      background:
+        radial-gradient(circle at top, rgba(217, 179, 107, 0.15), transparent 35%),
+        var(--bg);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color: #111111;
+      color: var(--text);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      box-sizing: border-box;
     }
+
+    a {
+      color: inherit;
+    }
+
     .top-nav {
       width: 100%;
-      max-width: 600px;
+      max-width: 760px;
       margin: 0 auto;
-      padding: 24px 20px 12px 20px;
-      box-sizing: border-box;
+      padding: 24px 20px 8px;
     }
+
     .back-link {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      color: #666666;
+      color: var(--muted);
       text-decoration: none;
       font-size: 14px;
-      font-weight: 500;
-    }
-    .main-container {
-      flex: 1;
-      width: 100%;
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 12px 20px 40px 20px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .badge {
-      background: #e6f4ea;
-      color: #137333;
-      padding: 6px 12px;
-      border-radius: 100px;
-      font-size: 13px;
       font-weight: 600;
-      letter-spacing: 0.5px;
+      transition: color 0.2s ease;
+    }
+
+    .back-link:hover {
+      color: var(--primary);
+    }
+
+    .main-container {
+      width: 100%;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 8px 20px 40px;
+      flex: 1;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, rgba(26, 94, 59, 0.98), rgba(18, 63, 42, 0.98));
+      border-radius: 28px;
+      padding: 32px 24px 24px;
+      color: #ffffff;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: -60px;
+      width: 220px;
+      height: 220px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 50%;
+    }
+
+    .badge {
       display: inline-block;
-      margin-bottom: 16px;
-      align-self: flex-start;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #f6f2eb;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
     }
-    h2 {
-      font-size: 32px;
-      font-weight: 800;
-      line-height: 1.2;
-      margin: 0 0 12px 0;
-      letter-spacing: -0.5px;
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2.1rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      letter-spacing: -0.05em;
+      max-width: 540px;
     }
-    .description {
-      font-size: 16px;
-      line-height: 1.5;
-      color: #555555;
-      margin: 0 0 32px 0;
+
+    .hero p {
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.84);
+      max-width: 560px;
     }
-    .info-card {
-      background: #ffffff;
-      border: 1px solid #e5e5e5;
-      border-radius: 20px;
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 22px;
+      margin-top: 24px;
+    }
+
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .panel-inner {
       padding: 24px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-      text-align: center;
-      box-sizing: border-box;
     }
-    .info-card h3 {
-      font-size: 18px;
-      font-weight: 700;
-      margin: 0 0 8px 0;
-      color: #111111;
+
+    .panel h2 {
+      margin: 0 0 16px;
+      font-size: 1.4rem;
+      letter-spacing: -0.04em;
     }
-    .info-card p {
-      font-size: 14px;
-      color: #666666;
-      margin: 0 0 20px 0;
-      line-height: 1.4;
+
+    .panel p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 0.98rem;
     }
-    .email-box {
-      background: #f4f4f4;
-      border: 2px dashed #cccccc;
+
+    .donation-options {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .amount-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--card-alt);
+      border: 1px solid var(--line);
       border-radius: 12px;
-      padding: 16px;
-      font-size: 16px;
+      padding: 10px 12px;
       font-weight: 700;
-      color: #111111;
+      color: var(--primary-dark);
+      min-width: 96px;
+      text-align: center;
+    }
+
+    .amount-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .info-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .info-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.2rem;
+      letter-spacing: -0.03em;
+    }
+
+    .info-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 0.96rem;
+    }
+
+    .email-box {
+      margin-top: 18px;
+      background: linear-gradient(180deg, #f7f6f4, #f1eee9);
+      border: 2px dashed #d1c8ba;
+      border-radius: 16px;
+      padding: 16px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-weight: 700;
+      color: var(--text);
       word-break: break-all;
-      margin-bottom: 20px;
       user-select: all;
     }
-    .notice {
-      font-size: 13px;
-      color: #666666;
-      line-height: 1.4;
-      margin: 0;
+
+    .copy-button {
+      appearance: none;
+      border: 0;
+      background: var(--primary);
+      color: #ffffff;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      white-space: nowrap;
     }
+
+    .copy-button:hover {
+      transform: translateY(-1px);
+      opacity: 0.96;
+    }
+
+    .copy-button:active {
+      transform: translateY(0);
+    }
+
+    .notice {
+      margin-top: 16px;
+      background: var(--success-bg);
+      border: 1px solid rgba(26, 109, 69, 0.15);
+      color: var(--success);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .list {
+      list-style: none;
+      padding: 0;
+      margin: 18px 0 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: 0.96rem;
+    }
+
+    .list li::before {
+      content: "✓";
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(26, 94, 59, 0.12);
+      color: var(--primary);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .steps {
+      margin-top: 18px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .step-number {
+      width: 34px;
+      height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--card-alt);
+      color: var(--primary);
+      border-radius: 50%;
+      font-weight: 800;
+      border: 1px solid var(--line);
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
     .page-footer {
       text-align: center;
-      padding: 24px 20px;
-      font-size: 12px;
-      color: #888888;
-      width: 100%;
-      box-sizing: border-box;
+      padding: 24px 20px 28px;
+      color: #666666;
+      font-size: 0.82rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 640px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 26px 18px 20px;
+      }
+
+      .email-box {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .copy-button {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
-
   <nav class="top-nav">
     <a href="index.html" class="back-link">
-      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <line x1="19" y1="12" x2="5" y2="12"></line>
         <polyline points="12 19 5 12 12 5"></polyline>
       </svg>
@@ -131,29 +360,100 @@
   </nav>
 
   <main class="main-container">
-    <span class="badge">Sadaqah Jariyah</span>
-    <h2>Support PAIA</h2>
-    <p class="description">
-      Your contributions keep our doors open, fund youth programs, and sustain daily community operations.
-    </p>
-
-    <div class="info-card">
-      <h3>Interac e-Transfer</h3>
-      <p>Please use your banking app to send your donation directly to our official email address:</p>
-      
-      <div class="email-box">
-        paislamicassociation@gmail.com
-      </div>
-
-      <p class="notice">
-        💡 <strong>Tip:</strong> You can press and hold the email address above to copy it easily on your phone.
+    <section class="hero">
+      <span class="badge">Sadaqah Jariyah</span>
+      <h1>Help keep our community strong.</h1>
+      <p>
+        Your generosity helps support prayer services, youth programming, educational initiatives,
+        and the daily care of our mosque and community.
       </p>
+    </section>
+
+    <div class="content-grid">
+      <section class="panel">
+        <div class="panel-inner">
+          <h2>Ways to give</h2>
+          <p>
+            Every contribution, large or small, helps us serve families and strengthen the faith community.
+          </p>
+
+          <div class="amount-row" aria-label="Suggested donation amounts">
+            <span class="amount-pill">$25</span>
+            <span class="amount-pill">$50</span>
+            <span class="amount-pill">$100</span>
+            <span class="amount-pill">$250+</span>
+          </div>
+
+          <ul class="list">
+            <li>Support weekly worship and community gatherings</li>
+            <li>Fund youth programs, classes, and family engagement</li>
+            <li>Help maintain the mosque and serve the community</li>
+          </ul>
+        </div>
+      </section>
+
+      <aside class="info-card">
+        <h3>Interac e-Transfer</h3>
+        <p>Please send your donation directly to our official email address below:</p>
+
+        <div class="email-box">
+          <span id="emailAddress">paislamicassociation@gmail.com</span>
+          <button class="copy-button" type="button" onclick="copyEmail()">Copy</button>
+        </div>
+
+        <p class="notice">
+          Tip: On mobile, tap and hold the email to copy it quickly.
+        </p>
+      </aside>
     </div>
+
+    <section class="panel" style="margin-top: 24px;">
+      <div class="panel-inner">
+        <h2>How to donate</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <p>Open your banking app and choose Interac e-Transfer.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <p>Send the amount to <strong>paislamicassociation@gmail.com</strong>.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <p>Include a note such as “Donation” or “Sadaqah” if you would like your contribution recognized.</p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="page-footer">
-    © 2026 Prince Albert Islamic Association.<br>Powered by Shahadah Studios Elite.
+    © 2026 Prince Albert Islamic Association.<br>
+    Powered by Shahadah Studios Elite.
   </footer>
 
+  <script>
+    function copyEmail() {
+      const email = document.getElementById('emailAddress').textContent;
+      const button = document.querySelector('.copy-button');
+
+      navigator.clipboard.writeText(email).then(function() {
+        const originalText = button.textContent;
+        button.textContent = 'Copied!';
+        button.disabled = true;
+
+        setTimeout(function() {
+          button.textContent = originalText;
+          button.disabled = false;
+        }, 1500);
+      }).catch(function() {
+        button.textContent = 'Try again';
+        setTimeout(function() {
+          button.textContent = 'Copy';
+        }, 1500);
+      });
+    }
+  </script>
 </body>
 </html>
