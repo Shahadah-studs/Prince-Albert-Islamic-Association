@@ -2,165 +2,338 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-      <link rel="icon" type="image/png" href="/paia.png?v1">
-  <title>Our History — Prince Albert Islamic Association</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/paia.png?v1">
+  <title>About Us — Prince Albert Islamic Association</title>
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      background-color: #fafafa;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color: #111111;
+    }
+
+    body {
+      background: linear-gradient(135deg, #063c22 0%, #0b4f2e 100%);
+      color: #1c2e24;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      box-sizing: border-box;
+      align-items: center;
+      padding: 20px;
     }
-    .top-nav {
+
+    .navbar {
       width: 100%;
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 24px 20px 12px 20px;
-      box-sizing: border-box;
+      max-width: 1100px;
+      background-color: #063c22;
+      border-bottom: 5px solid #d4af37;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      position: relative;
+      z-index: 100;
+      border-radius: 0 0 16px 16px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      gap: 20px;
     }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: #fff;
+      gap: 15px;
+    }
+
+    .logo-text {
+      font-family: 'Marcellus', serif;
+      font-size: 0.9rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      line-height: 1.3;
+    }
+
+    .logo-text span {
+      color: #d4af37;
+    }
+
     .back-link {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      color: #666666;
+      color: #d4af37;
       text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: all 0.2s ease;
+      border: 2px solid transparent;
+      padding: 8px 12px;
+      border-radius: 8px;
     }
+
+    .back-link:hover {
+      color: #063c22;
+      background-color: #d4af37;
+      border-color: #d4af37;
+    }
+
     .main-container {
-      flex: 1;
       width: 100%;
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 12px 20px 40px 20px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      max-width: 900px;
+      background: rgba(255, 255, 255, 0.95);
+      border: 3px solid #d4af37;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     }
+
     .badge {
       background: #e6f4ea;
       color: #137333;
-      padding: 6px 12px;
+      padding: 8px 16px;
       border-radius: 100px;
-      font-size: 13px;
+      font-size: 0.85rem;
       font-weight: 600;
       letter-spacing: 0.5px;
       display: inline-block;
-      margin-bottom: 16px;
-      align-self: flex-start;
-    }
-    h2 {
-      font-size: 32px;
-      font-weight: 800;
-      line-height: 1.2;
-      margin: 0 0 12px 0;
-      letter-spacing: -0.5px;
-    }
-    .description {
-      font-size: 16px;
-      line-height: 1.5;
-      color: #555555;
-      margin: 0 0 32px 0;
-    }
-    .info-card {
-      background: #ffffff;
-      border: 1px solid #e5e5e5;
-      border-radius: 20px;
-      padding: 24px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-      text-align: center;
-      box-sizing: border-box;
-    }
-    .info-card h3 {
-      font-size: 18px;
-      font-weight: 700;
-      margin: 0 0 8px 0;
-      color: #111111;
-    }
-    .info-card p {
-      font-size: 14px;
-      color: #666666;
-      margin: 0 0 20px 0;
-      line-height: 1.4;
-    }
-    .email-box {
-      background: #f4f4f4;
-      border: 2px dashed #cccccc;
-      border-radius: 12px;
-      padding: 16px;
-      font-size: 16px;
-      font-weight: 700;
-      color: #111111;
-      word-break: break-all;
       margin-bottom: 20px;
-      user-select: all;
     }
-    .notice {
-      font-size: 13px;
-      color: #666666;
-      line-height: 1.4;
-      margin: 0;
+
+    h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.5rem;
+      color: #063c22;
+      margin-bottom: 20px;
+      line-height: 1.2;
     }
+
+    .section-intro {
+      font-size: 1.1rem;
+      color: #4e5d55;
+      line-height: 1.8;
+      margin-bottom: 30px;
+      font-style: italic;
+    }
+
+    .content-section {
+      margin-bottom: 30px;
+    }
+
+    .content-section h2 {
+      font-family: 'Marcellus', serif;
+      font-size: 1.5rem;
+      color: #d4af37;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #d4af37;
+      padding-bottom: 10px;
+    }
+
+    .content-section p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #4e5d55;
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+
+    .content-section ul {
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+
+    .content-section li {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #4e5d55;
+      margin-bottom: 10px;
+    }
+
+    .highlight {
+      color: #d4af37;
+      font-weight: 600;
+    }
+
     .page-footer {
       text-align: center;
-      padding: 24px 20px;
-      font-size: 12px;
-      color: #888888;
+      padding: 30px 20px;
+      font-size: 0.85rem;
+      color: #d4af37;
       width: 100%;
-      box-sizing: border-box;
+      max-width: 1100px;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 15px;
+        border-radius: 0;
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .main-container {
+        padding: 25px;
+        border-radius: 12px;
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .content-section h2 {
+        font-size: 1.2rem;
+      }
+
+      .content-section p,
+      .content-section li {
+        font-size: 0.95rem;
+      }
+
+      .section-intro {
+        font-size: 1rem;
+      }
+
+      .back-link {
+        font-size: 0.85rem;
+        padding: 6px 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+
+      .navbar {
+        padding: 12px;
+        gap: 10px;
+      }
+
+      .main-container {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .content-section h2 {
+        font-size: 1.1rem;
+      }
+
+      .content-section p,
+      .content-section li {
+        font-size: 0.9rem;
+        text-align: left;
+      }
+
+      .badge {
+        font-size: 0.75rem;
+        padding: 6px 12px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <nav class="top-nav">
-    <a href="index.html" class="back-link">
+  <nav class="navbar">
+    <a href="/" class="logo-wrap">
+      <img src="paia.png" alt="PAIA Logo" height="50" width="50">
+      <div class="logo-text">Prince Albert<br><span>Islamic Association</span></div>
+    </a>
+    <a href="/" class="back-link">
       <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
         <line x1="19" y1="12" x2="5" y2="12"></line>
         <polyline points="12 19 5 12 12 5"></polyline>
       </svg>
-      Back to main website
+      Back Home
     </a>
   </nav>
 
   <main class="main-container">
     <span class="badge">Our History</span>
-    <h2>About us</h2>
-    <p class="description">
-      A brief history about us.</p>
+    <h1>About Our Community</h1>
+    <p class="section-intro">
+      Learn about the rich history and heritage of the Prince Albert Islamic Association
+    </p>
 
-    <div class="info-card">
-      
-      
-      <div class="email-box">
-        Brief History of the Prince Albert Mosque
- <br> <br>
-The Muslim community of Prince Albert, Saskatchewan, has a rich history shaped by the contributions of several dedicated physicians. Among the early pioneers were Dr. Shakoor (ophthalmologist), Dr. Anwar Ahmad, Dr. Zahanat Khan, and Dr. Mateen, Dr. Rashid Mizanur (family physician and current board member) all played an important role in establishing the first mosque for the community.
-<br>
-The earliest gatherings for prayer took place in the basement of Dr. Rozina’s house, serving as the community’s initial place of worship. Later, Dr. M. Z. Hussain spearheaded the establishment of the present mosque building in 2009. Initially, the mosque was smaller, but it gradually developed into the current Prince Albert Masjid, which continues to serve as the center of Muslim life in the city.
-<br>
-Dr. Hussain, who moved to Prince Albert in 1971 with his <br>wife, The mosque remains supported by the Hussain family, with his wife continuing to <br>play an active role in its support.
-<br>
-Community involvement has been central to the mosque’s <br>  growth. Mr. Ismail, father of Brother Sammy Ismail, was among the early contributors. People from Central Africa,<br> Somalia, and other African countries, including Mumin Warsame, also played a significant role in expanding the mosque through their presence and support. The contributions of Dr. S. Ali, Pharmacist Rizwan Ali, Dr. Ben Salah, Md. Yusuf, and several engineers have further strengthened the mosque and its community.
-<br>
-Today, the mosque’s day-to-day affairs are <br>supported by Dr. S. Khan (ophthalmologist, Khan Clinic beside the mosque) and, with active involvement from community leader such as and <br>Sammy Ismail (businessman).
-      </div>
-
-      <p class="notice">
-        💡 <strong>Tip:</strong> Need our history somewhere? Long tap/click it
+    <div class="content-section">
+      <h2>Brief History of the Prince Albert Mosque</h2>
+      <p>
+        The Muslim community of Prince Albert, Saskatchewan, has a rich and inspiring history shaped by the dedicated contributions of several physicians and community leaders. Our mosque stands as a testament to the faith, perseverance, and unity of our growing community.
       </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Our Founding Pioneers</h2>
+      <p>
+        Among the early pioneers of our community were <span class="highlight">Dr. Shakoor</span>, an ophthalmologist, and other dedicated individuals who recognized the importance of establishing a place of worship for the Muslim community in Prince Albert. These visionary leaders laid the foundation for what would become our vibrant mosque.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Early Gatherings</h2>
+      <p>
+        The earliest gatherings for prayer took place in the basement of <span class="highlight">Dr. Rozina's house</span>, which served as the community's initial and most humble place of worship. These gatherings were characterized by strong bonds of brotherhood and dedication to our faith, despite the modest surroundings.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Establishment of the Mosque</h2>
+      <p>
+        The formal establishment of the mosque was spearheaded by <span class="highlight">Dr. M. Z. Hussain</span>, whose vision and leadership transformed the community's aspirations into reality. Dr. Hussain moved to Prince Albert in 1971 with his devoted wife, and together they have remained steadfast supporters of our mosque throughout the decades.
+      </p>
+      <p>
+        To this day, the mosque continues to benefit from the unwavering support of the Hussain family, with Dr. Hussain's wife maintaining an active and honored role in supporting the community's spiritual and social endeavors.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Community Growth</h2>
+      <p>
+        Community involvement has been central to our mosque's continuous growth and development. Among the early contributors was <span class="highlight">Mr. Ismail</span>, father of Brother Sammy Ismail, whose generosity and commitment set an example for others.
+      </p>
+      <p>
+        Our mosque has been enriched by the participation of people from diverse backgrounds, including communities from Central Africa, Somalia, and many other regions around the world. This diversity has strengthened our community bonds and enriched our collective experience.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Today and Beyond</h2>
+      <p>
+        In the present day, the mosque's day-to-day affairs are supported by dedicated leaders including <span class="highlight">Dr. S. Khan</span>, an ophthalmologist whose clinic is located beside the mosque, and active community members such as <span class="highlight">Brother Sammy Ismail</span>. Their commitment ensures that our mosque continues to serve the spiritual and community needs of all Muslims in Prince Albert.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Our Mission</h2>
+      <p>
+        The Prince Albert Islamic Association remains committed to:
+      </p>
+      <ul>
+        <li>Providing a welcoming space for prayer and spiritual growth</li>
+        <li>Fostering community bonds and mutual support</li>
+        <li>Serving the broader Prince Albert community</li>
+        <li>Preserving Islamic traditions and values</li>
+        <li>Supporting education and social welfare initiatives</li>
+      </ul>
     </div>
   </main>
 
   <footer class="page-footer">
-    © 2026 Prince Albert Islamic Association.<br>Powered by Shahadah Studios Elite.
+    © 2026 Prince Albert Islamic Association. All rights reserved.<br>
+    <span style="font-size: 0.8rem;">Powered by Shahadah Studios Elite</span>
   </footer>
 
 </body>
